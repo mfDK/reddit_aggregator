@@ -10,7 +10,7 @@
 			if (theRequest.status >= 200 && theRequest.status < 400) {
 				console.log("Request was a success");
 				var ourData = JSON.parse(theRequest.responseText);
-				console.log(ourData.data.children[0].data.title);
+				console.log(ourData.data.children);
 				var allChildren = ourData.data.children;
 				displayPostTitles(allChildren);
 				// this above will get the title of the first post
@@ -25,12 +25,13 @@
 
 	function displayPostTitles(allPosts) {
 		var content = document.getElementById("content");
-		var posts = allPosts;
-		var postNumber = allPosts.length;
-		for (var x = 0; x < postNumber; x += 1) {
-			var postDiv = document.createElement("div");
-			postDiv.innerHTML = allPosts[x].data.title;
-			content.appendChild(postDiv);
+			posts = allPosts;
+			postNumber = allPosts.length;
+		for (var x = 0; x < 5; x += 1) {
+			var postLink = document.createElement("a");
+			postLink.href = allPosts[x].data.url;
+			postLink.innerHTML = allPosts[x].data.title;		
+			content.appendChild(postLink);
 		}
 	}
 
