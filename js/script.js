@@ -6,19 +6,32 @@
 		theRequest.open('GET', 'https://www.reddit.com/r/MMA.json');
 
 		theRequest.onload = function() {
+		// after the onload event occurs, 'responseText' contains complete server response
 			if (theRequest.status >= 200 && theRequest.status < 400) {
 				console.log("Request was a success");
+				var ourData = JSON.parse(theRequest.responseText);
+				console.log(ourData.data.children[0].data.title);
+				var allChildren = ourData.data.children;
+				displayPostTitles(allChildren);
+				// this above will get the title of the first post
+				// on the reddit/r/mma subreddit
 			} else {
 				console.log("Something went wrong");
 			}
 		}
-
+		console.log(theRequest)
 		theRequest.send();
 	});	
 
-	// function renderHTML(data) {
-	// 	var htmlString = "";
-
-	// }
+	function displayPostTitles(allPosts) {
+		var content = document.getElementById("content");
+		var posts = allPosts;
+		var postNumber = allPosts.length;
+		for (var x = 0; x < postNumber; x += 1) {
+			var postDiv = document.createElement("div");
+			postDiv.innerHTML = allPosts[x].data.title;
+			content.appendChild(postDiv);
+		}
+	}
 
 })();
