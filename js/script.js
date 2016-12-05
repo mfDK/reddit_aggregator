@@ -28,10 +28,12 @@
 			posts = allPosts;
 			postNumber = allPosts.length;
 		for (var x = 0; x < 5; x += 1) {
-			var postLink = document.createElement("a");
+			var divPost = document.createElement("div");
+				postLink = document.createElement("a");
+			content.appendChild(divPost);
 			postLink.href = allPosts[x].data.url;
 			postLink.innerHTML = allPosts[x].data.title;		
-			content.appendChild(postLink);
+			divPost.appendChild(postLink);
 		}
 	}
 
