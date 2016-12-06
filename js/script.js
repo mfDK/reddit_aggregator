@@ -38,3 +38,28 @@
 	}
 
 })();
+
+var popularSubs = ["askreddit", "funny", "todayilearned", "science", "pics", "worldnews", "iama", "gaming", "videos", "movies"];
+var subs = document.getElementById("subs");
+
+function showSubs(subArray) {
+	for (var i = 0; i < subArray.length; i += 1) {
+		subs.innerHTML += this[i] + ". "
+	}
+}
+
+var flowsik = showSubs.bind(popularSubs);
+flowsik(popularSubs);
+
+function requestSubReddit(sub) {
+		var redditRequest = new XMLHttpRequest();
+		redditRequest.open('GET', 'https://www.reddit.com/r/' + sub + '.json');
+
+		// redditRequest.onload = function() {
+		// 	var requestData = JSON.parse(redditRequest.responseText); 
+		// 	console.log(redditRequest.status)
+		// }
+
+		console.log(redditRequest);
+		redditRequest.send();
+	}
