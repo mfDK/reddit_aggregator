@@ -1,3 +1,5 @@
+// Function to create AJAX request to reddit.com/r/mma
+// Success
 (function() {
 	var button = document.getElementById("btn");
 
@@ -39,17 +41,40 @@
 
 })();
 
+
+// Function to create most popular
+(function() {
 var popularSubs = ["askreddit", "funny", "todayilearned", "science", "pics", "worldnews", "iama", "gaming", "videos", "movies"];
-var subs = document.getElementById("subs");
+	subs = document.getElementById("subs");
+	
 
 function showSubs(subArray) {
 	for (var i = 0; i < subArray.length; i += 1) {
-		subs.innerHTML += this[i] + ". "
+		// subs.innerHTML += this[i] + ". "
+		var subLinks = document.createElement("a");
+			subDivs = document.createElement("div");
+
+		subLinks.className = "popSubs";
+		subLinks.innerHTML = this[i];
+		subDivs.className = "popDivs";
+
+		subLinks.href = "https://www.reddit.com/r/" + this[i]
+
+		subs.appendChild(subDivs);
+		subDivs.appendChild(subLinks);
+
 	}
 }
 
-var flowsik = showSubs.bind(popularSubs);
-flowsik(popularSubs);
+var subArray = showSubs.bind(popularSubs);
+subArray(popularSubs);
+
+
+
+
+})();
+
+
 
 function requestSubReddit(sub) {
 		var redditRequest = new XMLHttpRequest();
