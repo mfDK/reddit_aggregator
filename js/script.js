@@ -49,10 +49,12 @@ var popularSubs = ["askreddit", "funny", "todayilearned", "science", "pics", "wo
 	
 
 function showSubs(subArray) {
+
 	for (var i = 0; i < subArray.length; i += 1) {
 		// subs.innerHTML += this[i] + ". "
 		var subLinks = document.createElement("a");
 			subDivs = document.createElement("div");
+			linkBox = document.createElement("div");
 
 		subLinks.className = "popSubs";
 		subLinks.innerHTML = this[i];
@@ -63,10 +65,20 @@ function showSubs(subArray) {
 		subs.appendChild(subDivs);
 		subDivs.appendChild(subLinks);
 
+		// Everything below this must be refactored
+		// this function is already way too bloated
+		linkBox.className = "boxOfLinks";
+		subDivs.appendChild(linkBox);
+
 	}
 }
 
+// This bind method attaches the showSubs function to the 
+// popularSubs array.
 var subArray = showSubs.bind(popularSubs);
+
+// This function is called and the popularSubs is passed in 
+// an argument that points to an array of strings
 subArray(popularSubs);
 
 
