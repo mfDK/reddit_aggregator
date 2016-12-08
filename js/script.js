@@ -70,7 +70,25 @@ function showSubs(subArray) {
 		linkBox.className = "boxOfLinks";
 		subDivs.appendChild(linkBox);
 
+		popRequest(this[i]);
+
 	}
+}
+
+// create a function that will send an ajax request to the .json subreddit
+// that will bring back the links and place them in their correct div
+function popRequest(sub) {
+	var popSubRequest = new XMLHttpRequest();
+	popSubRequest.open('GET', 'https://www.reddit.com/r/' + sub + '.json');
+
+	popSubRequest.onload = function() {
+		if (popSubRequest.status >= 200 && popSubRequest.status < 400) {
+			var popSubData = JSON.parse(popSubRequest.responseText);
+			console.log(popSubData);
+		}
+	}
+
+	popSubRequest.send();
 }
 
 // This bind method attaches the showSubs function to the 
