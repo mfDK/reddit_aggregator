@@ -84,12 +84,18 @@ function popRequest(sub) {
 	popSubRequest.onload = function() {
 		if (popSubRequest.status >= 200 && popSubRequest.status < 400) {
 			var popSubData = JSON.parse(popSubRequest.responseText);
-			console.log(popSubData);
+			console.log(popSubData.data.children[0]);
+		} else {
+			console.log("Request was messed up");
 		}
 	}
 
 	popSubRequest.send();
 }
+
+// function populateFive(subName) {
+// 	var 
+// }
 
 // This bind method attaches the showSubs function to the 
 // popularSubs array.
