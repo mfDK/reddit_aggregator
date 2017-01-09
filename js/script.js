@@ -23,7 +23,7 @@
 		}
 		console.log(theRequest)
 		theRequest.send();
-	});	
+	});
 
 	function displayPostTitles(allPosts) {
 		var content = document.getElementById("content");
@@ -34,7 +34,7 @@
 				postLink = document.createElement("a");
 			content.appendChild(divPost);
 			postLink.href = allPosts[x].data.url;
-			postLink.innerHTML = allPosts[x].data.title;		
+			postLink.innerHTML = allPosts[x].data.title;
 			divPost.appendChild(postLink);
 		}
 	}
@@ -45,16 +45,16 @@
 // Function to create most popular
 (function() {
 var popularSubs = ["askreddit", "funny", "todayilearned", "science", "pics", "worldnews", "iama", "gaming", "videos", "movies"];
-	subs = document.getElementById("subs");
-	
+		subs = document.getElementById("subs");
+
 
 function showSubs(subArray) {
 
 	for (var i = 0; i < subArray.length; i += 1) {
 		// subs.innerHTML += this[i] + ". "
 		var subLinks = document.createElement("a");
-			subDivs = document.createElement("div");
-			linkBox = document.createElement("div");
+				subDivs = document.createElement("div");
+				linkBox = document.createElement("div");
 
 		subLinks.className = "popSubs";
 		subLinks.innerHTML = this[i];
@@ -77,6 +77,8 @@ function showSubs(subArray) {
 
 // create a function that will send an ajax request to the .json subreddit
 // that will bring back the links and place them in their correct div
+// in the true conditional, it is only bringing back the first child [0] of the request
+// run a for loop inside conditional?
 function popRequest(sub) {
 	var popSubRequest = new XMLHttpRequest();
 	popSubRequest.open('GET', 'https://www.reddit.com/r/' + sub + '.json');
@@ -84,7 +86,10 @@ function popRequest(sub) {
 	popSubRequest.onload = function() {
 		if (popSubRequest.status >= 200 && popSubRequest.status < 400) {
 			var popSubData = JSON.parse(popSubRequest.responseText);
-			console.log(popSubData.data.children[0]);
+				// console.log(popSubData.data.children[0]);
+				for (var n = 0; n < 5; n +=1 ) {
+					console.log(popSubData.data.children[n]);
+				}
 		} else {
 			console.log("Request was messed up");
 		}
@@ -94,14 +99,14 @@ function popRequest(sub) {
 }
 
 // function populateFive(subName) {
-// 	var 
+// 	var
 // }
 
-// This bind method attaches the showSubs function to the 
+// This bind method attaches the showSubs function to the
 // popularSubs array.
 var subArray = showSubs.bind(popularSubs);
 
-// This function is called and the popularSubs is passed in 
+// This function is called and the popularSubs is passed in
 // an argument that points to an array of strings
 subArray(popularSubs);
 
@@ -117,7 +122,7 @@ function requestSubReddit(sub) {
 		redditRequest.open('GET', 'https://www.reddit.com/r/' + sub + '.json');
 
 		// redditRequest.onload = function() {
-		// 	var requestData = JSON.parse(redditRequest.responseText); 
+		// 	var requestData = JSON.parse(redditRequest.responseText);
 		// 	console.log(redditRequest.status)
 		// }
 
