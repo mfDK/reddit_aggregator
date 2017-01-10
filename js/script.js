@@ -44,7 +44,7 @@
 
 // Function to create most popular
 (function() {
-var popularSubs = ["askreddit", "funny", "todayilearned", "science", "pics", "worldnews", "iama", "gaming", "videos", "movies"];
+var popularSubs = ["AskReddit", "funny", "todayilearned", "science", "pics", "worldnews", "IAmA", "gaming", "videos", "movies"];
 		subs = document.getElementById("subs");
 
 
@@ -99,7 +99,7 @@ function popRequest(sub) {
 
 
 						linkPost.innerHTML = popSubData.data.children[n].data.title;
-						linkPost.href = 'www.reddit.com' + popSubData.data.children[n].data.permalink;
+						linkPost.href = popSubData.data.children[n].data.url;
 						linkDiv.appendChild(linkPost);
 						// console.log(findIdDiv);
 						console.log(popSubData.data.children[n].data);
