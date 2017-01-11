@@ -1,14 +1,14 @@
 (function() {
     var popularSubs = ["AskReddit", "funny", "todayilearned", "science", "pics", "worldnews", "IAmA", "gaming", "videos", "movies"];
-    	subs = document.getElementById("subs");
+    var subs = document.getElementById("subs");
 
 
     function showSubs(subArray) {
 
         for (var i = 0; i < subArray.length; i += 1) {
             var subLinks = document.createElement("a");
-            	subDivs = document.createElement("div");
-            	linkBox = document.createElement("div");
+            var subDivs = document.createElement("div");
+            var linkBox = document.createElement("div");
 
             subLinks.className = "popSubs";
             subLinks.innerHTML = popularSubs[i];
@@ -37,8 +37,8 @@
                 var popSubData = JSON.parse(popSubRequest.responseText);
                 for (var n = 0; n < 5; n += 1) {
                     var linkPost = document.createElement("a");
-                    linkDiv = document.createElement("div");
-                    findIdDiv = document.getElementById(popSubData.data.children[n].data.subreddit);
+                    var linkDiv = document.createElement("div");
+                    var findIdDiv = document.getElementById(popSubData.data.children[n].data.subreddit);
 
                     linkPost.innerHTML = popSubData.data.children[n].data.title;
                     linkPost.href = popSubData.data.children[n].data.url;
