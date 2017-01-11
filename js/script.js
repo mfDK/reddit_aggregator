@@ -64,6 +64,8 @@ function popRequest(sub) {
 		}
 	}
 
+	console.log(popSubRequest.readyState);
+
 	popSubRequest.send();
 }
 
