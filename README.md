@@ -11,3 +11,5 @@ using __AJAX__ requests to hit each popular subreddit and bringing back the top 
 Installation
 -----
 `git clone`
+
+[Reddit Top 5 Page](https://mfdk.github.io/reddit_aggregator/)
