@@ -8,8 +8,4 @@ __Reddit Top 5__ is the solution to your messy front-page being scattered with y
 
 using __AJAX__ requests to hit each popular subreddit and bringing back the top 5 posts from each popular subreddit. Links are created so that users can go directly to the post URL for their own leisure.
 
-Installation
------
-`git clone`
-
 [Reddit Top 5 Page](https://mfdk.github.io/reddit_aggregator/)
