@@ -1,25 +1,42 @@
 @import url("https://fonts.googleapis.com/css?family=Hind+Vadodara:400,600");
 body {
   font-family: "Hind Vadodora", sans-serif; }
+  body #img-container {
+    height: 200px;
+    width: 250px;
+    margin: 0 auto; }
+    body #img-container img {
+      height: 100%;
+      width: 100%; }
   body #subs {
     width: 70%;
     margin: 0 auto; }
     body #subs .popDivs {
-      border: 1px solid black;
+      background-color: #ffffff;
+      border: 2px solid black;
+      border-radius: 2px;
       text-align: center;
-      padding: 15px 0 15px 0; }
+      padding: 0 0 15px 0; }
       body #subs .popDivs .popSubs {
         display: inline-block;
+        padding: 15px 0 15px 0;
         margin-bottom: 20px;
         text-transform: uppercase;
         text-decoration: none;
         font-size: 2.6em;
         font-weight: 700;
-        color: black; }
+        color: black;
+        background-color: #C8DDFD;
+        width: 100%; }
       body #subs .popDivs .boxOfLinks {
         height: 100%;
         width: 100%; }
         body #subs .popDivs .boxOfLinks div {
           margin: 0 0 20px 0; }
+          body #subs .popDivs .boxOfLinks div a {
+            color: #000000;
+            text-decoration: none; }
+          body #subs .popDivs .boxOfLinks div a:hover {
+            text-decoration: underline; }
 
 /*# sourceMappingURL=main.css.map */

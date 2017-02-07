@@ -14,7 +14,7 @@
             subLinks.innerHTML = popularSubs[i];
             subDivs.className = "popDivs";
 
-            subLinks.href = "https://www.reddit.com/r/" + popularSubs[i]
+            subLinks.href = "https://www.reddit.com/r/" + popularSubs[i];
 
             subs.appendChild(subDivs);
             subDivs.appendChild(subLinks);
@@ -48,7 +48,7 @@
             } else {
                 console.log("Request was messed up");
             }
-        }
+        };
 
         console.log(popSubRequest.readyState);
 
