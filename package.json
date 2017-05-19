@@ -1,0 +1,23 @@
+{
+  "name": "p_one",
+  "version": "1.0.0",
+  "description": "Look at the top 5 posts from each popular without having to go to reddit in an orderly fashion.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfDK/reddit_aggregator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mfDK/reddit_aggregator/issues"
+  },
+  "homepage": "https://github.com/mfDK/reddit_aggregator#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-scss": "^1.4.0"
+  }
+}
