@@ -3,6 +3,7 @@
 
     var popularSubs = ["AskReddit", "funny", "todayilearned", "science", "pics", "worldnews", "IAmA", "gaming", "videos", "movies"];
     var btnDiv = document.getElementById("popular-buttons");
+    var links = document.getElementById("links");
     var element = document.createElement('button');
 
     function createButton(subreddit) {
@@ -12,8 +13,17 @@
         return btn;
     }
 
-    function createButtonList() {
-        popularSubs.forEach(function(sub) {
+    function createLinks(posts) {
+        for (var i = 0; i < 5; i++) {
+            var link = document.createElement('a');
+            link.href = posts[i].data.url;
+            link.innerHTML = posts[i].data.title;
+            links.append(link);
+        }
+    }
+
+    function createButtonList(list) {
+        list.forEach(function(sub) {
             btnDiv.append(createButton(sub));
         });
     }
@@ -24,7 +34,8 @@
         req.onload = function() {
             if (req.status >= 200 && req.status < 400) {
                 var data = JSON.parse(req.responseText);
-                console.log(data);
+                links.innerHTML = "";
+                createLinks(data.data.children);
             }
         }
         req.send();
@@ -40,7 +51,7 @@
 
     }
 
-    createButtonList();
+    createButtonList(popularSubs);
     addBtnEvents();
 
 })();
