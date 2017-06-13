@@ -3,7 +3,7 @@
 
     var popularSubs = ["AskReddit", "funny", "todayilearned", "science", "pics", "worldnews", "IAmA", "gaming", "videos", "movies"];
     var btnDiv = document.getElementById("popular-buttons");
-    var links = document.getElementById("links");
+    var links = document.getElementById("link-container");
     var element = document.createElement('button');
 
     function createButton(subreddit) {
@@ -17,6 +17,7 @@
         for (var i = 0; i < 5; i++) {
             var link = document.createElement('a');
             link.href = posts[i].data.url;
+            link.className = "links";
             link.innerHTML = posts[i].data.title;
             links.append(link);
         }
