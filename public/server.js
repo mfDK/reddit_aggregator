@@ -14,6 +14,5 @@
     app.listen(3000, function() {
         console.log('You are on server 3000');
     });
-
-    module.exports = app;
+    
 })();
