@@ -1,3 +1,39 @@
-.links {
-    display: block;
+$main-color: #397AA4;
+$secondary-color: #22465D;
+
+#img-container {
+    text-align: center;
+}
+
+#popular-buttons {
+    text-align: center;
+    margin-bottom: 25px;
+    .subreddit-btn {
+        border: 2px solid $main-color;
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 5px 10px;
+        font-size: 0.8em;
+        font-weight: 700;
+        color: $main-color;
+    }
+}
+
+#link-container {
+    border: 2px solid $secondary-color;
+    border-radius: 3px;
+    .links {
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+// iPhone 6 - iPhone 6 Plus
+@media (min-width: 374px) and (max-width: 413px) {
+    #link-container {
+        border: 2px solid $secondary-color;
+        border-radius: 3px;
+        min-height: 270px;
+        padding: 10px;
+    }
 }
