@@ -15,7 +15,7 @@
     }
 
     function createLinks(posts) {
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 9; i++) {
             var link = document.createElement('a');
             link.href = posts[i].data.url;
             link.className = "links";
@@ -38,12 +38,19 @@
                 var data = JSON.parse(req.responseText);
                 links.innerHTML = "";
                 createLinks(data.data.children);
+            } else {
+                var errorMessage = document.createElement('p');
+                errorMessage.innerHTML = "Looks like theres an error, try again";
+                links.append(errorMessage);
             }
         }
         req.send();
     }
 
     function btnEvents() {
+        if (document.getElementById('placeholder')) {
+            links.removeChild(document.getElementById('placeholder'));
+        }
         removeClass(btnNodes);
         active(this);
         request(this.innerHTML);

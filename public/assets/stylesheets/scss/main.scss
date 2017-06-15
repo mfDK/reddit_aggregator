@@ -1,6 +1,12 @@
 $main-color: #397AA4;
 $secondary-color: #22465D;
 
+body {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
 #img-container {
     text-align: center;
 }
@@ -22,23 +28,45 @@ $secondary-color: #22465D;
 
 .active {
     background-color: $main-color !important;
-    color: #ffffff !important:;
+    color: #ffffff !important;
 }
 
 #link-container {
     border: 2px solid $secondary-color;
     border-radius: 3px;
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 60%;
+    min-height: 600px;
     .links {
         display: block;
         margin-bottom: 20px;
+        text-align: center;
+    }
+    #placeholder {
+        text-align: center;
+        font-size: 2em;
+        color: $main-color;
     }
 }
+
+footer {
+    background-color: $secondary-color;
+    margin-top: 25px;
+    padding-top: 15px;
+    min-height: 60px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+}
 // iPhone 6 - iPhone 6 Plus
-@media (min-width: 374px) and (max-width: 413px) {
+@media (min-width: 320px) and (max-width: 413px) {
     #link-container {
         border: 2px solid $secondary-color;
         border-radius: 3px;
-        min-height: 250px;
+        width: 90%;
+        height: 250px;
         padding: 10px;
     }
 }
@@ -48,7 +76,8 @@ $secondary-color: #22465D;
     #link-container {
         border: 2px solid $secondary-color;
         border-radius: 3px;
-        min-height: 450px;
+        width: 80%;
+        height: 450px;
         padding: 30px;
         text-align: center;
     }
