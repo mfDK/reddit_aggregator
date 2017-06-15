@@ -20,6 +20,11 @@ $secondary-color: #22465D;
     }
 }
 
+.active {
+    background-color: $main-color !important;
+    color: #ffffff !important:;
+}
+
 #link-container {
     border: 2px solid $secondary-color;
     border-radius: 3px;
@@ -33,7 +38,18 @@ $secondary-color: #22465D;
     #link-container {
         border: 2px solid $secondary-color;
         border-radius: 3px;
-        min-height: 270px;
+        min-height: 250px;
         padding: 10px;
+    }
+}
+
+// iPhone 6 Plus - iPad
+@media (min-width: 414px) and (max-width: 768px) {
+    #link-container {
+        border: 2px solid $secondary-color;
+        border-radius: 3px;
+        min-height: 450px;
+        padding: 30px;
+        text-align: center;
     }
 }

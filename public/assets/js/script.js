@@ -4,12 +4,13 @@
     var popularSubs = ["AskReddit", "funny", "todayilearned", "science", "pics", "worldnews", "IAmA", "gaming", "videos", "movies"];
     var btnDiv = document.getElementById("popular-buttons");
     var links = document.getElementById("link-container");
-    var element = document.createElement('button');
+    var btnNodes = document.getElementsByClassName("subreddit-btn");
 
     function createButton(subreddit) {
         var btn = document.createElement('button');
         btn.innerHTML = subreddit;
         btn.className = "subreddit-btn"
+        btn.onclick = btnEvents;
         return btn;
     }
 
@@ -42,17 +43,23 @@
         req.send();
     }
 
-    function addBtnEvents() {
-        var btnNodes = document.getElementsByClassName("subreddit-btn");
-        var btnNodesArray = Array.prototype.filter.call(btnNodes, function(node) {
-            node.addEventListener('click', function(e) {
-                request(e.target.innerHTML);
-            })
-        });
+    function btnEvents() {
+        removeClass(btnNodes);
+        active(this);
+        request(this.innerHTML);
+    }
 
+    function active(element) {
+        element.classList.add("active");
+    }
+
+    function removeClass(nodeList) {
+        var nodeArray = Array.prototype.slice.call(nodeList);
+        nodeArray.forEach(function(node) {
+            node.classList.remove("active");
+        })
     }
 
     createButtonList(popularSubs);
-    addBtnEvents();
 
 })();
