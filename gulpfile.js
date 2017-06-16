@@ -4,6 +4,8 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-clean-css');
 var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
 
 gulp.task('sass', function() {
     return gulp.src('./docs/assets/stylesheets/scss/*.scss')
@@ -15,4 +17,11 @@ gulp.task('sass', function() {
 
 gulp.task('sass:watch', function() {
     gulp.watch('./docs/assets/stylesheets/scss/**/*.scss', ['sass']);
+});
+
+gulp.task('scripts', function() {
+    return gulp.src('./docs/assets/js/*.js')
+        .pipe(concat('script.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./docs/assets/js'));
 });
